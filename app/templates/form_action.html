@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>FoodFacts</title>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+        <link href='http://fonts.googleapis.com/css?family=Glegoo:700' rel='stylesheet' type='text/css'>
+    </head>
+    <body background="../static/desk.jpg">
+        <div id="container">
+            {% if found == True %}
+            <h1 class="food-title", style="padding-bottom: 80px">{{data[0]}}</h1>
+
+            <div class="food-content">
+                <table style="width:50%">
+                    <tr>
+                        <td class="data-fields">Calories</td>
+                        <td>{{data[1].replace('"', "")}}</td>
+                    </tr>
+                    <tr>
+                        <td class="data-fields">Total Fat</td>
+                        <td>{{data[2].replace('"', "")}}</td>
+                    </tr>
+                    <tr>
+                        <td class="data-fields">Saturated Fat</td>
+                        <td>{{data[3].replace('"', "")}}</td>
+                    </tr>
+                    <tr>
+                        <td class="data-fields">Trans Fat</td>
+                        <td>{{data[4].replace('"', "")}}</td>
+                    </tr>
+                    <tr>
+                        <td class="data-fields">Cholesterol</td>
+                        <td>{{data[5].replace('"', "")}}</td>
+                    </tr>
+                    <tr>
+                        <td class="data-fields">Sodium</td>
+                        <td>{{data[6].replace('"', "")}}</td>
+                    </tr>
+                    <tr>
+                        <td class="data-fields">Carbohydrates</td>
+                        <td>{{data[7].replace('"', "")}}</td>
+                    </tr>
+                    <tr>
+                        <td class="data-fields">Dietary Fiber</td>
+                        <td>{{data[8].replace('"', "")}}</td>
+                    </tr>
+                    <tr>
+                        <td class="data-fields">Sugars</td>
+                        <td>{{data[9].replace('"', "")}}</td>
+                    </tr>
+                    <tr>
+                        <td class="data-fields">Protein</td>
+                        <td>{{data[10].replace('"', "")}}</td>
+                    </tr>
+                    <tr>
+                        <td class="data-fields">Calcium</td>
+                        <td>{{data[11].replace('"', "")}}</td>
+                    </tr>
+                </table>
+
+                <table style="width:50%" class="exercise">
+                    <tr>
+                        <td class="exercise-title">How do I burn off these calories?</td>
+                    </tr>
+                    <tr>
+                        <td>{{data[12].replace('"', "")}}</td>
+                    </tr>
+                    <tr>
+                        <td class="or">or</td>
+                    </tr>
+                    <tr>
+                        <td>{{data[13].replace('"', "")}}</td>
+                    </tr>
+                    <tr>
+                        <td class="or">or</td>
+                    </tr>
+                    <tr>
+                        <td>{{data[14].replace('"', "")}}</td>
+                    </tr>
+                    <tr>
+                        <td class="or">or</td>
+                    </tr>
+                    <tr>
+                        <td>{{data[15].replace('"', "")}}</td>
+                    </tr>
+                </table>
+            </div>
+            {% else %}
+                <h1 class="error">No search results were found :(</h1>
+            {% endif %}
+        </div>
+    </body>
+</html>
