@@ -88,5 +88,9 @@
                 <h1 class="error">No search results were found :(</h1>
             {% endif %}
         </div>
+        
+        <form method="post" action="{{ url_for('index') }}">
+            <input type="submit" value="Go back" class="go-back"/>
+        </form>
     </body>
 </html>

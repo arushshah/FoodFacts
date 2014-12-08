@@ -4,21 +4,20 @@ from flask import Flask, render_template, request, url_for
 app = Flask(__name__)
 
 # Define a route for the default URL, which loads the form
-@app.route('/')
-def form():
+@app.route('/index/', methods=['POST', 'GET'])
+def index():
     return render_template('form_submit.html')
 
 # Define a route for the action of the form, for example '/hello/'
 # We are also defining which type of requests this route is 
 # accepting: POST requests in this case
-@app.route('/hello/', methods=['POST'])
-def hello():
+@app.route('/results/', methods=['POST'])
+def results():
     name=request.form['yourname']
     food_data = []
     
     data = open("data.csv", "r")
     counter = 0
-
     
     for row in data:
     	parts = row.split(",")
