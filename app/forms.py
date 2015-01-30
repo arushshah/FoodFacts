@@ -1,16 +1,14 @@
 from flask import Flask, render_template, request, url_for
 
-# Initialize the Flask application
 app = Flask(__name__)
 
-# Define a route for the default URL, which loads the form
+# Home page with search field
 @app.route('/index/', methods=['POST', 'GET'])
 def index():
     return render_template('form_submit.html')
 
-# Define a route for the action of the form, for example '/hello/'
-# We are also defining which type of requests this route is 
-# accepting: POST requests in this case
+
+# shows results of food search
 @app.route('/results/', methods=['POST'])
 def results():
     name=request.form['yourname']
@@ -32,6 +30,5 @@ def results():
 
     return render_template('form_action.html', name=name, data = parts, found=True)
     
-# Run the app :)
 if __name__ == '__main__':
   app.run(debug=True)
